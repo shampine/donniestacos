@@ -1,13 +1,10 @@
 // Donnie's Tacos //
 
 const WordPOS = require('wordpos');
-const Tacos   = require('./tacos/tacos.js');
+const Tacos   = require('./dict/tacos.js');
+const Quotes  = require('./dict/quotes.js');
 
-const wordpos = new WordPOS();
-
-const quotes = [
-    "Sometimes your best investments are the ones you don't make."
-];
+const wordpos = new WordPOS({});
 
 const donnies = {
     doTacos: function(text) {
@@ -16,12 +13,12 @@ const donnies = {
                 console.log(this.noResult());
             }
 
-            var newText = text;
+            let newText = text;
 
             for (let i = 0; i < result.rest.length;i++) {
                 let word = result.rest[i];
                 let reg  = new RegExp(result.rest[i]);
-                let taco = Tacos[Math.floor(Math.random() * quotes.length)];
+                let taco = this.getRandom(Tacos);
 
                 if (result.rest[i] === "" ) {
                     continue;
@@ -41,12 +38,14 @@ const donnies = {
             console.log(newText);
         }.bind(this));
     },
+    getRandom: function(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    },
     noResult: function() {
         return "Unable to serve Donnie's Tacos";
     }
-}
+};
 
-
-const randomText = quotes[Math.floor(Math.random() * quotes.length)];
+const randomText = donnies.getRandom(Quotes);
 
 donnies.doTacos(randomText);

@@ -1,0 +1,22 @@
+{
+  "name": "donniestacos",
+  "version": "0.0.1",
+  "description": "Burritos know it. Tacos know it. All guac knows it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shampine/donniestacos.git"
+  },
+  "author": "Patrick Shampine <patrick@patrickshampine.com> (https://patrickshampine.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shampine/donniestacos/issues"
+  },
+  "homepage": "https://github.com/shampine/donniestacos#readme",
+  "dependencies": {
+    "wordpos": "^1.1.2"
+  }
+}
